@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(getSumBtn);
 
     const getSum = () => {
+        // Select all elements with the class 'price'
         const priceElements = document.querySelectorAll('.price');
         let total = 0;
 
@@ -18,15 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
             existingTotalRow.remove();
         }
 
-        const totalRow = document.createElement('tr');
-        totalRow.id = 'total-row';
-        const totalCell = document.createElement('td');
-        totalCell.colSpan = 2;
-        totalCell.textContent = `Total Price: Rs ${total.toFixed(2)}`;
-        totalRow.appendChild(totalCell);
-
-        const table = document.querySelector('table');
-        table.appendChild(totalRow);
+        // Display the total price in the div with id 'ans'
+        const ansDiv = document.getElementById('ans');
+        ansDiv.textContent = `Total Price: Rs ${total.toFixed(2)}`;
     };
 
     getSumBtn.addEventListener("click", getSum);
